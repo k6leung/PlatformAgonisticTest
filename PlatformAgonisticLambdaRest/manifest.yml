@@ -1,0 +1,9 @@
+---
+applications:
+- name: PlatformAgonisticLambdaRest
+  memory: 1024M
+  instances: 1
+  buildpack: java_buildpack
+  path: ./target/PlatformAgonisticLambdaRest-0.0.1-SNAPSHOT-aws.jar
+  env:
+    SPRING_PROFILES_ACTIVE: container,mongo
