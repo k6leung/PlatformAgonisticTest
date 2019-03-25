@@ -1,0 +1,13 @@
+---
+applications:
+- name: PlatformAgonisticQueueProducer_topic
+  memory: 1024M
+  instances: 1
+  buildpack: java_buildpack
+  path: ./target/PlatformAgonisticQueueProducer-0.0.1-SNAPSHOT-aws.jar
+  services:
+  - directRabbit
+  timeout: 180
+  env:
+    SPRING_PROFILES_ACTIVE: container,topicRabbitmq
+    JBP_CONFIG_DEBUG: '{enabled: true}'

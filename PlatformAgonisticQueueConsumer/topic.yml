@@ -1,0 +1,15 @@
+---
+applications:
+- name: PlatformAgonisticQueueConsumer_topic
+  memory: 1024M
+  instances: 1
+  buildpack: java_buildpack
+  path: ./target/PlatformAgonisticQueueConsumer-0.0.1-SNAPSHOT-aws.jar
+  services:
+  - directRabbit
+  no-route: true
+  health-check-type: process
+  env:
+    SPRING_PROFILES_ACTIVE: container,topicRabbitmq,mongo
+    JBP_CONFIG_DEBUG: '{enabled: true}'
+  
